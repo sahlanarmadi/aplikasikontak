@@ -1,0 +1,28 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Detail Contact</h2>
+            <% if(!contact){ %>
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                    <div>
+                      Nama kontak yang anda cari tidak ada <br><a href="/contact" style="text-decoration: none;"><b>&laquo; Kembali Kehalaman Kontak</b></a>
+                    </div>
+                  </div>
+            <% } else{ %>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= contact.nama %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><%= contact.email %></h6>
+                  <p class="card-text"><%= contact.noHp %></p>
+                  <label>Keterangan: </label>
+                  <p class="card-text"><%= contact.keterangan %></p>
+                  <a href="/contact" class="btn btn-success badge">&laquo; Kembali Ke Halaman Contact</a><br>
+                  <a href="/contact/edit/<%= contact.nama %>" class="btn btn-info badge">&laquo; Edit Kontak</a>
+                  <a href="/contact/delete/<%= contact.nama %>" class="btn btn-danger badge" onclick="return confirm('yakin ingin menghpus???')" >&laquo; Hapus Kontak</a>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
